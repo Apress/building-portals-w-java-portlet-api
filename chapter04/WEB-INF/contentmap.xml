@@ -1,0 +1,40 @@
+<ContentMap>
+  <Topics>
+    <Topic name="XML">
+      <Topic name="Parsers">
+        <ContentReference id="1"/>
+        <ContentReference id="4"/>
+      </Topic>
+      <Topic name="XSLT">
+        <ContentReference id="2"/>
+      </Topic>
+    </Topic>
+    <Topic name="Java">
+      <Topic name="Search Engines">
+	<ContentReference id="2"/>
+      </Topic>
+      <ContentReference id="1"/>
+      <ContentReference id="3"/>
+      <ContentReference id="4"/>
+    </Topic>
+    <Topic name="Open Source">
+      <ContentReference id="1"/>
+      <ContentReference id="3"/>
+      <ContentReference id="4"/>    
+    </Topic>
+  </Topics>
+  <ContentPieces>
+    <Content id="1">
+      Xerces is an open source XML Parser written in Java.
+    </Content>
+    <Content id="2">
+      Lucene is an open source Java search engine.
+    </Content>
+    <Content id="3">
+      Xalan is an open source XSLT engine written in Java.
+    </Content>
+    <Content id="4">
+      JDOM is an open source Java XML parser.
+    </Content>
+  </ContentPieces>
+</ContentMap>

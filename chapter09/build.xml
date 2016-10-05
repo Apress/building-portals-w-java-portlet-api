@@ -1,0 +1,67 @@
+<project name="Chapter09" default="main" basedir=".">
+
+   <property environment="env"/>
+   
+   <property file="./build.properties"/>
+
+   <property name="tomcat.home"		value="${env.CATALINA_HOME}"/>
+   <property name="build.compiler"	value="modern"/>
+   <property name="build.dir"		value="./WEB-INF/classes" />
+   <property name="src.dir"		value="."/>
+   <property name="servlet.jar"		value="${tomcat.home}/common/lib/servlet.jar"/>
+   <property name="rss4j.jar"		value="/rss4j/lib/rss4j.jar"/>
+   <property name="war.file"		value="Chapter09"/>
+   <property name="war.file.name"	value="${war.file}.war"/>
+   <property name="deploy.dir"		value="${tomcat.home}/webapps"/>
+   
+   <path id="project.class.path">
+      <fileset dir="./WEB-INF/lib/">
+         <include name="**/*.jar"/>
+      </fileset>
+      <pathelement path="${src.dir}"/>
+      <pathelement path="${servlet.jar}"/>
+      <pathelement path="${rss4j.jar}"/>
+   </path>
+   
+   <target name="clean">
+      <delete dir="${build.dir}" includeEmptyDirs="true" />
+   </target>
+   
+   <target name="prep">
+         <mkdir dir="${build.dir}"/>
+   </target>
+   
+   <target name="compile">
+      <javac	srcdir="${src.dir}"
+                destdir="${build.dir}"
+                debug="on"
+                deprecation="on">
+         <include name="**/*.java"/>
+         <classpath refid="project.class.path"/>
+      </javac>
+   </target>
+
+   <target name="cleanWebApp">
+      <delete file="${deploy.dir}/${war.file.name}" />
+      <delete  dir="${deploy.dir}/${war.file}" includeEmptyDirs="true" />
+   </target>
+   
+   <target name="war">
+      <war warfile="${war.file.name}" webxml="./WEB-INF/web.xml">
+         <fileset dir="./" includes="**/*.*" excludes="*.war, **/*.nbattrs, web.xml, **/WEB-INF/**/*.*, **/project-files/**/*.*"/>
+         <webinf  dir="./WEB-INF"    includes="**/*" excludes="web.xml, **/*.jar"/>
+         <lib     dir="./WEB-INF/lib"/>
+         <classes dir="${build.dir}" includes="**/*.properties" />
+      </war>
+   </target>
+   
+   <target name="deploy">
+      <copy todir="${deploy.dir}">
+         <fileset dir="./" includes="${war.file.name}"/>
+      </copy>
+   </target>
+	
+   <target name="main" depends="clean, prep, cleanWebApp, compile, war"/>
+	
+</project>
+  

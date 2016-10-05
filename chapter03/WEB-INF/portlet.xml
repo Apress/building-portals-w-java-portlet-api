@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+	<portlet>
+        <description>JetspeedBook Link Crawler</description>
+		
+        <portlet-name>crawler</portlet-name>
+		
+        <display-name>Link Crawler</display-name>
+		
+        <portlet-class>com.jetspeedbook.crawler.CrawlerPortlet</portlet-class>
+
+        <init-param>
+			<name>crawlPath</name>
+			<value>http://localhost:8080/</value>
+		</init-param>
+		        
+        <expiration-cache>-1</expiration-cache>
+		        
+        <supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+		</supports>
+
+        <supported-locale>en</supported-locale>
+
+		<portlet-info>
+			<title>Link Crawler Portlet</title>
+			<short-title>Crawler</short-title>
+			<keywords>Crawler, Link, Checker</keywords>
+        </portlet-info>
+
+	</portlet>
+	<portlet>
+        <description>JetspeedBook Simple Portlet</description>
+		
+        <portlet-name>simple</portlet-name>
+		
+        <display-name>Simple Portlet</display-name>
+		
+        <portlet-class>com.jetspeedbook.crawler.SimplePortlet</portlet-class>
+
+        <expiration-cache>-1</expiration-cache>
+		        
+        <supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+		</supports>
+
+        <supported-locale>en</supported-locale>
+
+		<portlet-info>
+			<title>Simple Portlet</title>
+			<short-title>Simple</short-title>
+			<keywords>Simple, Example</keywords>
+        </portlet-info>
+	</portlet>
+ </portlet-app>

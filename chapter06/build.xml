@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="build-war" name="xdoclet-build" basedir=".">
+  <property file="build.properties"/>
+  <property name="src.dir" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="classes.dir" value="${build.dir}/classes"/>
+  <property name="lib.dir" value="lib"/>
+  <property name="web-inf.dir" value="WEB-INF"/>
+  <property name="web-inf.generated.dir" value="generated"/>
+  <property name="war.name" value="xdocletexample"/>
+  
+  <property name="xdoclet.merge.dir" value="merge"/>
+  
+  <path id="xdoclet.portlet.classpath">
+    <fileset dir="${xdoclet.install.dir}/lib">
+        <include name="*.jar"/>
+    </fileset>
+        <fileset dir="${tomcat.shared.lib.dir}">
+          <include name="*.jar"/>
+        </fileset>        
+  </path>
+  
+  <target name="init">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${classes.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${lib.dir}"/> 
+    <mkdir dir="${web-inf.generated.dir}"/>
+  </target>
+  
+  <target name="compile" depends="init">
+    <javac destdir="${classes.dir}" deprecation="true" debug="true" optimize="false">
+      <src>
+        <pathelement location="${src.dir}"/>
+      </src>
+      <classpath>
+        <fileset dir="${lib.dir}">
+          <include name="*.jar">
+          </include>
+        </fileset>
+        <fileset dir="${tomcat.shared.lib.dir}">
+          <include name="*.jar">
+          </include>
+        </fileset>        
+      </classpath>
+    </javac>
+  </target>
+  
+  <target name="create-portlet-xml">
+    <taskdef name="portletdoclet"
+             classname="xdoclet.modules.portlet.PortletDocletTask"
+             classpathref="xdoclet.portlet.classpath"
+     />
+     
+     <portletdoclet destdir="${web-inf.generated.dir}" 
+                    mergedir="${xdoclet.merge.dir}"
+                    force="true"
+     >
+         <fileset dir="${src.dir}">
+            <include name="**/*.java"/>
+         </fileset>
+         
+         <portletxml/>
+     </portletdoclet>
+  </target>
+  
+  <target name="copy-portlet-xml">
+    <copy file="${web-inf.generated.dir}/portlet.xml"
+          todir="${web-inf.dir}"
+     />
+  </target>
+  
+  <target name="build-war" depends="compile,create-portlet-xml,copy-portlet-xml">
+    <war destfile="${dist.dir}/${war.name}.war" webxml="WEB-INF/web.xml">
+        <classes dir="${classes.dir}"/>
+        <lib dir="${lib.dir}"/>
+        <webinf dir="${web-inf.dir}"/>
+    </war>
+  </target>
+  
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+    <delete dir="${web-inf.generated.dir}"/>
+  </target>
+</project>

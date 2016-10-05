@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ch05</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>classes</name>
+			<type>2</type>
+			<location>C:/java/tomcat/webapps/first/WEB-INF/classes</location>
+		</link>
+		<link>
+			<name>webapp-classes</name>
+			<type>2</type>
+			<location>C:/java/tomcat/webapps/ch05/WEB-INF/classes</location>
+		</link>
+	</linkedResources>
+</projectDescription>

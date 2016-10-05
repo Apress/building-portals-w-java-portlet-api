@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+
+<project name="Chapter13" default="all" basedir=".">
+
+    <!-- Override any of the above properties in this properties file ====== -->
+        <property file="build.properties" />
+    
+    <!-- To force and overwrite of any copied files, run your ant task as:   -->
+    <!-- ant -Doverwrite=true taskName                                       -->
+    <property name="overwrite" value="false" />
+    
+    <property name="tomcat.home" value="/java/tomcat" />
+
+    <!-- source dirs ======================================================= -->
+    <property name="src.dir" value="${basedir}/src" />
+    <property name="web-inf.dir" value="${basedir}/webapp/WEB-INF" />
+    <property name="skins.src.dir" value="${web-inf.dir}/skins" />
+    
+    <!-- destination/target dirs =========================================== -->
+    <property name="build.dir" value="${basedir}/classes" /> 
+    <property name="javadoc.dir" value="${basedir}/javadoc" />
+    <property name="jspc.dir" value="${basedir}/jspc" />
+    <property name="jar.dir" value="${web-inf.dir}/lib" />
+    <property name="war.dir" value="${basedir}" />
+    <property name="dist.dir" value="${basedir}/dist"/>
+
+    <!-- javadoc specific props ============================================ -->
+    <property name="javadoc.dependencies" value="${rel.path}/javadoc" />
+    <property name="javadoc.stylesheetfile" 
+       value="${javadoc.dependencies}/style.css" />
+
+    <property name="javadoc.overview"
+       value="${javadoc.dependencies}/overview.html" />
+
+    <!-- Build dependencies (jar files) for the Yazd source code =========== -->
+    <path id="build.dependencies">
+        <!-- Next come jars in the build/lib directory                       -->
+        <fileset dir="${basedir}/build/lib">
+            <include name="*.jar" />
+            <exclude name="ant.jar" />
+            <exclude name="jaxp.jar" />
+            <exclude name="crimson.jar" />
+        </fileset>
+        <!-- Lastly add the jars in the WEB-INF/lib directory                -->
+        <fileset dir="${jar.dir}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <!-- compile =========================================================== -->
+    <!-- An alias for all compile tasks                                      -->
+    <target name="compile" depends="compilecore">
+    </target>
+
+    <!-- compilecore ======================================================= -->
+    <!-- Compiles core Yazd source code (including filters)                  -->
+    <target name="compilecore">
+        <!-- create the build dir -->
+        <mkdir dir="${basedir}/classes" />
+        <javac
+            destdir="${basedir}/classes"
+            includes="**/*.java"
+            includeAntRuntime="no"
+        >
+            <classpath>
+                <path refid="build.dependencies" />
+            </classpath>
+            <src path="${basedir}/src" />
+        </javac>
+    </target>
+
+  
+
+    <!-- javadoc =========================================================== -->
+    <!-- An alias for all javadoc tasks                                      -->
+    <!-- TODO:
+    <target name="javadoc" depends="javadoccore">
+    </target>
+    -->
+
+    <!-- javadoccore ======================================================= -->
+    <!-- Generates JavaDocs on all core Yazd code (including filters)        -->
+    <!-- TODO: Fix Me -->
+    <target name="javadoccore">
+        <!-- create the javadoc dir -->
+        <mkdir dir="${javadoc.dest.dir}" />
+        <!-- dir to the source dir -->
+        <copy todir="${core.src.dir}">
+            <fileset dir="${javadoc.dependencies}" includes="**/package.html" />
+        </copy>
+        <!-- run the javadoc command -->
+        <javadoc
+            packagenames="com.Yasna.forum,
+                          com.Yasna.forum.filter,
+                          com.Yasna.forum.util,
+                          com.Yasna.util"
+            destdir="${javadoc.dest.dir}"
+            stylesheetfile="${javadoc.stylesheetfile}"
+            windowtitle="Yazd Documentation"
+            doctitle="&lt;font face='verdana,arial,helvetica'>Yazd 1.0 3&lt;/font>"
+            header="&lt;b>Yazd&lt;/b>"
+            bottom="&lt;i>Copyright &amp;copy; 2000-2001 Yasna Inc. &lt;/i>"
+        >
+            <classpath>
+                <pathelement path="${build.dest.dir}" />
+                <path refid="build.dependencies" />
+            </classpath>
+            <sourcepath>
+                <pathelement path="${core.src.dir}" />
+                <pathelement path="${filters.src.dir}" />
+            </sourcepath>
+        </javadoc>
+        <!-- delete the package.html files we moved into the source dir -->
+        <delete>
+            <fileset dir="${core.src.dir}" includes="**/package.html" />
+        </delete>
+    </target>
+
+    <!-- jar =============================================================== -->
+    <!-- Creates a jar file of the classes in the build dir                  -->
+    <target name="jar" depends="compile">
+        <echo message="Creating yazd.jar in ${basedir}/WEB-INF/lib/" />
+        <mkdir dir="${basedir}/WEB-INF/lib/" />
+        <jar
+            jarfile="${basedir}/WEB-INF/lib/yazd.jar"
+        >
+            <!-- main classes -->
+            <fileset dir="${basedir}/classes"
+                includes="com/Yasna/**/*.class"
+            />  <!-- NOT Including properties -->
+        </jar>
+        <!-- delete the temporary directory -->
+    </target>
+
+    <!-- war =============================================================== -->
+    <!-- Creates a war file of the classes in the build dir.                 -->
+    <!-- Caveat: This task isn't up-to-date                                  -->
+    <target name="war" depends="jar">
+        <mkdir dir="${dist.dir}/classes" />
+        <war warfile="${dist.dir}/Chapter13.war"
+            webxml="${web-inf.dir}/web.xml"
+        >
+
+            <webinf dir="${web-inf.dir}"/>
+
+        </war>
+    </target>
+
+
+    <!-- clean ============================================================= -->
+    <!-- Deletes all build-created directories and files                     -->
+    <target name="clean">
+        <!-- delete build classes -->
+        <delete dir="${build.dest.dir}" />
+        <!-- delete generated javadoc -->
+        <delete dir="${javadoc.dest.dir}" />
+        <!-- delete the diff file -->
+        <delete dir="${diff.dest.dir}" />
+
+        <!-- delete the yazd.jar file -->
+        <delete file="${jar.dest.dir}/yazd.jar" />
+        <!-- delete the yazd.war file -->
+        <delete file="${dist.dir}/Chapter13.war" />
+    </target>
+
+    <!-- all =============================================================== -->
+    <!-- Builds a war by default                                             -->
+    <target name="all" depends="war"> 
+    </target>
+
+</project>
+
+

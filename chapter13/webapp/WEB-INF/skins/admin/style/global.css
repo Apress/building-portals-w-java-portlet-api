@@ -1,0 +1,105 @@
+
+/* 
+   admin.css
+   Stylesheet for Yazd admin tool
+*/
+
+/* stupid netscape hack */
+P {}
+
+
+/* global styles */
+P,BODY,TD {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+}
+.pageHeaderBg { background-color : #666666; }
+.pageHeaderFg { background-color : #dddddd; }
+.pageHeaderText { font-size : 12pt; font-weight : bold; }
+.errorText, .messageText {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #ff0000;
+}
+.pageTitle {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+
+
+/* Login page styles */
+.login {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 11pt;
+}
+
+
+/* Header page */
+.adminHeader {
+	font-family : Trebuchet MS,arial,helvetica,sans-serif;
+	font-size : 18pt;
+	font-style : italic;
+}
+
+
+/* Toolbar page */
+.toolbarBg { background-color : #dddddd; }
+.toolbarLink { 
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 11pt;
+	color : #0000ff;
+}
+.toolbarLink:hover { color : #cc3300 }
+
+
+/* Sidebar page */
+.sidebarNode, .sidebarLeaf {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #000000;
+}
+.sidebarLink { }
+.sidebarLink:hover { color : #cc6600; }
+
+
+/* forum admin pages */
+.forumCellHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+}
+.forumCell {
+	font-family : verana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+}
+
+
+/* view forum page styles */
+.viewForumHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+.viewForumDeck {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #993333;
+}
+.forumListHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+	text-align : center;
+}
+.forumListCell {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+	background-color : #ffffff;
+}
+.forumListDateCell {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+	background-color : #ffffff;
+	color : #660000;
+}
+
+

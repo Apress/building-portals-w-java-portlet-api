@@ -1,0 +1,27 @@
+
+<!--
+  <taglib>
+    <taglib-uri>yazdforum.tld</taglib-uri>
+    <taglib-location>/WEB-INF/yazdforum.tld</taglib-location>
+  </taglib>
+
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/datetime-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/taglibs-datetime.tld</taglib-location>
+  </taglib>
+
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/request-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/taglibs-request.tld</taglib-location>
+  </taglib>
+
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/response-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/taglibs-response.tld</taglib-location>
+  </taglib>
+
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/session-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/taglibs-session.tld</taglib-location>
+  </taglib>
+-->

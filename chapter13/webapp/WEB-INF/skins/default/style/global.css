@@ -1,0 +1,95 @@
+
+/* default values */
+H2,H4,BODY,TD,P,SMALL {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+}
+/* override HTML elements */
+H2 {
+	font-size : 12pt;
+	font-weight : bold;
+}
+H4 {
+	color : #993333;
+	font-size : 10pt;
+	font-weight : bold;
+}
+
+.banner {
+   font-size : 17pt;
+   text-decoration : none;
+}
+
+SMALL {
+	font-size : 8pt;
+}
+/* user defined styles */
+
+/* date in the upper right hand corner of the header */
+.headerDate {
+	font-family : arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+
+/* text in the header */
+.headerText {
+	font-family: verdana,arial,sans-serif;
+}
+
+/* breadcrumb links */
+.crumb {
+	color : #000000;
+	font-weight : bold;
+	text-decoration : none;
+}
+.crumb:hover {
+	color : #990000;
+	text-decoration : underline;
+}
+
+/* toolbar text (includes links) */
+.toolbar {
+	color : #000000;
+	font-size : 8pt;
+	text-decoration : none;
+}
+.toolbar:hover {
+	color : #660000;
+	text-decoration : underline;
+}
+
+/* error classes */
+.error {
+	color : #993300;
+	font-style : italic;
+}
+
+/* forum link (href on a forum name, thread name, message name, etc) */
+.forum {
+	color : #003399;
+	font-weight : bold;
+	text-decoration : none;
+}
+.forum:vlink {
+	color : #003399;
+}
+.forum:hover {
+	color : #666699;
+	text-decoration : underline;
+}
+
+/* styles for all dates */
+.date {
+	color : #cc3300;
+}
+
+/* styles for messages, replies */
+.messageHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+.messageAuthor {
+	font-style : italic;
+}

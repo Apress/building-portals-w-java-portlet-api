@@ -1,0 +1,24 @@
+A { text-decoration: none; }
+A:hover	{ color:#FF3300; }
+.normal { text-decoration: underline; color:#0033cc; }
+.subject { font-family: verdana; }
+.subjectOn { font-family: verdana; font-weight: bold; }
+.username { font-family: verdana; color: #000000; }
+.usernameOn { font-family: verdana; color: #000000; font-weight: bold; }
+.datetime { font-family: verdana; color: #333333; }
+.datetimeOn { font-family: verdana; color: #333333; font-weight: bold; }
+
+.dateTimeList { font-family: verdana; color: #666666; text-align: center; }
+.dateTimeListToday { font-family: verdana; color: #ff6600; text-align: center; }
+
+.breadcrumbBox { font-family: verdana; 
+				 font-size: 9pt; 
+				 color: #0033cc; 
+				 font-weight: bold;
+			   }
+.messageNav { font-size: 7pt;
+				font-family: verdana;
+			}
+.messageNavButton { font-size: 8pt;
+					font-family: verdana;
+				}

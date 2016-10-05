@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+
+    <portlet>
+        <description>CMS WebDAV Portlet</description>
+
+        <portlet-name>CMSPortlet</portlet-name>
+
+        <display-name>CMS WebDAV Portlet</display-name>
+
+        <portlet-class>com.portalbook.portlets.CMSPortlet</portlet-class>
+
+        <init-param>
+            <description>URL to the WebDAV server</description>
+            <name>URL</name>
+            <value>http://localhost:9080/slide/</value>
+        </init-param>        
+
+        <init-param>
+            <description>User name for the WebDAV server</description>
+            <name>username</name>
+            <value>root</value>
+        </init-param>        
+
+        <init-param>
+            <description>Password for the WebDAV server</description>
+            <name>password</name>
+            <value>root</value>
+        </init-param>        
+
+        <expiration-cache>0</expiration-cache>
+
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+            <portlet-mode>EDIT</portlet-mode>
+        </supports>
+
+        <supported-locale>en</supported-locale>        
+
+            <portlet-info>
+                <title>CMS Portlet</title>
+                <short-title>CMS</short-title>
+                <keywords>CMS,WebDAV,Slide</keywords>
+            </portlet-info>
+     
+    </portlet>
+
+ </portlet-app>

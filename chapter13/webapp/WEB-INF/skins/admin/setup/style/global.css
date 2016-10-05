@@ -1,0 +1,65 @@
+
+/* 
+   admin.css
+   Stylesheet for Jive admin tool
+   July, 2000
+*/
+
+/* stupid netscape hack */
+P {}
+
+
+/* global styles */
+BODY, TD {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+}
+.pageHeaderBg { background-color : #666666; }
+.pageHeaderFg { background-color : #dddddd; }
+.pageHeaderText { font-size : 12pt; font-weight : bold; }
+.errorText, .messageText {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #ff0000;
+}
+.pageTitle {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+
+
+/* Login page styles */
+.login {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 11pt;
+}
+
+
+/* Header page */
+.adminHeader {
+	font-family : Trebuchet MS,arial,helvetica,sans-serif;
+	font-size : 18pt;
+	font-style : italic;
+}
+
+
+/* Toolbar page */
+.toolbarBg { background-color : #dddddd; }
+.toolbarLink { 
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 11pt;
+	color : #0000ff;
+}
+.toolbarLink:hover { color : #cc3300 }
+
+
+/* Sidebar page */
+.sidebarNode, .sidebarLeaf {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #000000;
+}
+.sidebarLink { }
+.sidebarLink:hover { color : #cc6600; }
+

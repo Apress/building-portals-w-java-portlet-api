@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="war" name="concepts" basedir=".">
+  <property name="src.dir" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="classes.dir" value="${build.dir}/classes"/>
+  <property name="lib.dir" value="lib"/>
+  <property name="web-inf.dir" value="WEB-INF"/>
+  <property name="war.name" value="concepts"/>
+  <property file="../common.properties"/>  
+  
+  <target name="init">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${classes.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+  <target name="compile" depends="init">
+    <javac destdir="${classes.dir}" deprecation="true" debug="true" optimize="false">
+      <src>
+        <pathelement location="${src.dir}"/>
+      </src>
+      <classpath>
+        <fileset dir="${lib.dir}">
+          <include name="*.jar">
+          </include>
+        </fileset>
+        <fileset dir="${tomcat.shared.lib.dir}">
+          <include name="*.jar">
+          </include>
+        </fileset>        
+      </classpath>
+    </javac>
+  </target>
+  <target name="war" depends="compile">
+    <war destfile="${dist.dir}/${war.name}.war" webxml="WEB-INF/web.xml">
+    	<classes dir="${classes.dir}"/>
+    	<lib dir="${lib.dir}"/>
+    	<webinf dir="${web-inf.dir}"/>
+    </war>
+  </target>
+  <target name="clean">
+    <delete dir="${build.dir}">
+    </delete>
+    <delete dir="${dist,dir}">
+    </delete>
+  </target>
+</project>

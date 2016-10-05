@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>pb</shortname>
+  <uri>portalbook.tld</uri>
+  <info>Portalbook Tag Library</info>
+
+  <tag>
+    <name>href</name>
+    <tagclass>com.portalbook.forums.tags.HrefTag</tagclass>
+    <bodycontent>NONE</bodycontent>
+    <info>
+      Rewrite a relative URL so that it refers to the position in the page
+      relative to the portlet (this will remove any path information
+      donated by the portal to manage the portlet's state).
+    </info>
+    
+    <attribute>
+       <name>path</name>
+       <required>true</required>
+       <rtexprvalue>true</rtexprvalue>       
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>url</name>
+    <tagclass>com.portalbook.forums.tags.UrlTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+       Rewrite a URL so that the resulting page 
+       displays in the portlet.
+    </info>
+    
+    <variable>
+       <name-from-attribute>var</name-from-attribute>
+       <variable-class>javax.portlet.PortletURL</variable-class>
+       <scope>AT_END</scope>
+    </variable>
+    
+    <attribute>
+      <name>mode</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+
+    <attribute>
+      <name>state</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+
+    <attribute>
+      <name>var</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+</taglib>

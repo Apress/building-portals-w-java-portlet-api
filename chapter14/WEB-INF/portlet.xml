@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+
+	<portlet>
+		<description>Charting Portlet</description>
+
+		<portlet-name>ChartingPortlet</portlet-name>
+
+		<display-name>Charting Demo Portlet</display-name>
+
+		<portlet-class>com.portalbook.portlets.ChartingPortlet</portlet-class>
+
+		<expiration-cache>0</expiration-cache>
+
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+
+		<supported-locale>en</supported-locale>        
+
+       		<portlet-info>
+       			<title>Charting Portlet</title>
+       			<short-title>Charting</short-title>
+       			<keywords>Charting,JFreeChart</keywords>
+               </portlet-info>
+     
+	</portlet>
+
+ </portlet-app>

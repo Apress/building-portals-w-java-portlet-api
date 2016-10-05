@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>jf</shortname>
+  <uri>yazdforum.tld</uri>
+  <info>Yazd Forum JSP Tag Library</info>
+
+  <tag>
+    <name>account</name>
+    <tagclass>com.Yasna.forum.tags.AccountTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.AccountTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Access or modify user account information</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>confirm</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>admin</name>
+    <tagclass>com.Yasna.forum.tags.AdminUserTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Login as the admin user to view or modify account information
+      for a user that is not logged in.
+    </info>
+  </tag>
+
+  <tag>
+    <name>anonymous_user</name>
+    <tagclass>com.Yasna.forum.tags.AnonymousUserTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Includes body of tag if user is anonymous.</info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>authorize</name>
+    <tagclass>com.Yasna.forum.tags.AuthorizeTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.AuthorizeTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Authorize Yazd user and initialize forum, thread,
+      and message parameters.
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>anonymous</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>create</name>
+    <tagclass>com.Yasna.forum.tags.CreateTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.CreateTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Create a new user account.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>confirm</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>password</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>login</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>login</name>
+    <tagclass>com.Yasna.forum.tags.LoginTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Login user using username and password.
+      Includes body of tag if login succeeded.
+    </info>
+  </tag>
+
+  <tag>
+    <name>logout</name>
+    <tagclass>com.Yasna.forum.tags.LogoutTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Logout a user from Yazd and sets their Authorization to an
+      anonymous user.
+    </info>
+  </tag>
+
+  <tag>
+    <name>member_of_group</name>
+    <tagclass>com.Yasna.forum.tags.MemberOfGroupTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Includes body of tag if user is a member of group.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>user</name>
+    <tagclass>com.Yasna.forum.tags.UserTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.UserTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Access public information about a user.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>change_forum</name>
+    <tagclass>com.Yasna.forum.tags.ChangeForumTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Changes to an alternate forum, used to post or move message to,
+      or use a different forum.
+    </info>
+  </tag>
+
+  <tag>
+    <name>forum</name>
+    <tagclass>com.Yasna.forum.tags.ForumTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.ForumTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Information about the current forum.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>trackVisits</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>match</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>forum_loop</name>
+    <tagclass>com.Yasna.forum.tags.ForumLoopTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Implement a loop for a list of forums</info>
+    <attribute>
+      <name>begin</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>end</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>match</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>match</name>
+    <tagclass>com.Yasna.forum.tags.MatchTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Set forum extended property match</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>next_forum</name>
+    <tagclass>com.Yasna.forum.tags.NextForumTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Includes body of tag if there is another forum following the current
+      forum in the list of available forums.
+    </info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>prev_forum</name>
+    <tagclass>com.Yasna.forum.tags.PrevForumTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Includes body of tag if there is a forum preceding the current
+      forum in the list of available forums.
+    </info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>query</name>
+    <tagclass>com.Yasna.forum.tags.QueryTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Create a query to use for selecting forum messages</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>change_thread</name>
+    <tagclass>com.Yasna.forum.tags.ChangeThreadTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Changes to an alternate thread, used to view a different thread.
+    </info>
+  </tag>
+
+  <tag>
+    <name>move_thread</name>
+    <tagclass>com.Yasna.forum.tags.MoveThreadTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Move a thread to a different forum.</info>
+  </tag>
+
+  <tag>
+    <name>next_thread</name>
+    <tagclass>com.Yasna.forum.tags.NextThreadTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Includes body of tag if there is another thread following the current
+      thread in the current forum.
+    </info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>prev_thread</name>
+    <tagclass>com.Yasna.forum.tags.PrevThreadTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Includes body of tag if there is a thread preceding the current
+      thread in the current forum.
+    </info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>thread</name>
+    <tagclass>com.Yasna.forum.tags.ThreadTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.ThreadTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Get the current thread data</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>thread_loop</name>
+    <tagclass>com.Yasna.forum.tags.ThreadLoopTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Implement a loop for a list of threads in a forum</info>
+    <attribute>
+      <name>begin</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>end</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>walk</name>
+    <tagclass>com.Yasna.forum.tags.WalkTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Walks a tree of messages in a thread.</info>
+    <attribute>
+      <name>thread</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>anonymous_message</name>
+    <tagclass>com.Yasna.forum.tags.AnonymousMessageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Includes body of tag if user who authored message is anonymous.</info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>message</name>
+    <tagclass>com.Yasna.forum.tags.MessageTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.MessageTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Current Message. Looks for a message from the walk tag,
+      thread tag, or from the message parameter in that order.
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>nested</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>message_loop</name>
+    <tagclass>com.Yasna.forum.tags.MessageLoopTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Implement a loop for a list of messages in a forum</info>
+    <attribute>
+      <name>query</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>move_message</name>
+    <tagclass>com.Yasna.forum.tags.MoveMessageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Move a message to a different forum and thread.</info>
+  </tag>
+
+  <tag>
+    <name>post</name>
+    <tagclass>com.Yasna.forum.tags.PostTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.PostTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Used to setup for posting a new message.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>post_append</name>
+    <tagclass>com.Yasna.forum.tags.PostAppendTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Appends the body of this tag to message being posted.</info>
+  </tag>
+
+  <tag>
+    <name>post_message</name>
+    <tagclass>com.Yasna.forum.tags.PostMessageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Saves the message to the forum.</info>
+  </tag>
+
+  <tag>
+    <name>set_parent_message</name>
+    <tagclass>com.Yasna.forum.tags.SetParentMessageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Sets the parent message of message being moved.</info>
+  </tag>
+
+  <tag>
+    <name>set_thread</name>
+    <tagclass>com.Yasna.forum.tags.SetThreadTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Sets the thread where message should be moved.</info>
+  </tag>
+
+  <tag>
+    <name>current_depth</name>
+    <tagclass>com.Yasna.forum.tags.CurrentDepthTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>Returns the current depth of message being walked.</info>
+  </tag>
+
+  <tag>
+    <name>is_message</name>
+    <tagclass>com.Yasna.forum.tags.IsMessageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When walking a tree of messages, body is included if this
+      message is below the users message_depth.
+    </info>
+  </tag>
+
+  <tag>
+    <name>is_parent</name>
+    <tagclass>com.Yasna.forum.tags.IsParentTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When walking a tree of messages, body is included if this
+      is a parent message to the starting message for this page.
+    </info>
+  </tag>
+
+  <tag>
+    <name>is_summary</name>
+    <tagclass>com.Yasna.forum.tags.IsSummaryTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When walking a tree of messages, body is included if this message
+      is above the users message_depth, but below the users thread_depth.
+    </info>
+  </tag>
+
+  <tag>
+    <name>is_total</name>
+    <tagclass>com.Yasna.forum.tags.IsTotalTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When walking a tree of messages, body is included if this
+      message depth is greater than the users thread_depth.
+    </info>
+  </tag>
+
+  <tag>
+    <name>while_child</name>
+    <tagclass>com.Yasna.forum.tags.WhileChildTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Loops for every child message.</info>
+  </tag>
+
+  <tag>
+    <name>while_new_child</name>
+    <tagclass>com.Yasna.forum.tags.WhileNewChildTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Loops while there is a new child message.</info>
+  </tag>
+
+  <tag>
+    <name>while_parent</name>
+    <tagclass>com.Yasna.forum.tags.WhileParentTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Loops for every parent message.</info>
+  </tag>
+
+  <tag>
+    <name>while_new_parent</name>
+    <tagclass>com.Yasna.forum.tags.WhileNewParentTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Loops while there is a parent message.</info>
+  </tag>
+
+  <tag>
+    <name>new_messages</name>
+    <tagclass>com.Yasna.forum.tags.NewMessagesTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Includes body of tag if there are new messages since last forum visit.
+    </info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>next_item</name>
+    <tagclass>com.Yasna.forum.tags.NextItemTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Used to get the query portion of an HREF get for paging to the
+      start of the next list of items to display for the forum_loop,
+      thread_loop, or walk tag.
+    </info>
+  </tag>
+
+  <tag>
+    <name>next_page</name>
+    <tagclass>com.Yasna.forum.tags.NextPageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When looping using forum_loop, thread_loop, or walk tag; includes
+      body of tag on last iteration of loop if there are more items to
+      be displayed.
+    </info>
+  </tag>
+
+  <tag>
+    <name>on_entry</name>
+    <tagclass>com.Yasna.forum.tags.OnEntryTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When looping using forum_loop, thread_loop, or walk tag;
+      includes body of tag on first iteration of loop.
+    </info>
+  </tag>
+
+  <tag>
+    <name>on_exit</name>
+    <tagclass>com.Yasna.forum.tags.OnExitTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When looping using forum_loop, thread_loop, or walk tag;
+      includes body of tag on last iteration of loop.
+    </info>
+  </tag>
+
+  <tag>
+    <name>prev_item</name>
+    <tagclass>com.Yasna.forum.tags.PrevItemTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Used to get the query portion of an HREF get for paging to the
+      previous list of items to display for the forum_loop, thread_loop,
+      or walk tag.
+    </info>
+  </tag>
+
+  <tag>
+    <name>prev_page</name>
+    <tagclass>com.Yasna.forum.tags.PrevPageTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      When looping using forum_loop, thread_loop, or walk tag; includes
+      body of tag on first iteration of loop if there is a previous list
+      of items to be displayed.
+    </info>
+  </tag>
+
+  <tag>
+    <name>getYazdProperty</name>
+    <tagclass>com.Yasna.forum.tags.GetYazdPropertyTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>Gets a Yazd extended property value.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>setYazdProperty</name>
+    <tagclass>com.Yasna.forum.tags.SetYazdPropertyTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Sets a Yazd extended property value.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>eval</name>
+    <tagclass>com.Yasna.forum.tags.EvalTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Compares two values, use the true and false tags to test result
+       of eval. The values can be strings without any whitespace.
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>foreach</name>
+    <tagclass>com.Yasna.forum.tags.ForEachTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.ForEachTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Implement a loop.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>begin</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>end</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>step</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>false</name>
+    <tagclass>com.Yasna.forum.tags.FalseTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Evaluate an expression</info>
+    <attribute>
+      <name>eval</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>true</name>
+    <tagclass>com.Yasna.forum.tags.TrueTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Evaluate an expression</info>
+    <attribute>
+      <name>eval</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>rotate</name>
+    <tagclass>com.Yasna.forum.tags.RotateTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.RotateTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Rotates output within a loop.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>rotate_selection</name>
+    <tagclass>com.Yasna.forum.tags.RotateSelectionTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Rotate selection within a loop.</info>
+  </tag>
+
+  <tag>
+    <name>calc</name>
+    <tagclass>com.Yasna.forum.tags.CalcTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Calculate an expression</info>
+  </tag>
+
+  <tag>
+    <name>if_error</name>
+    <tagclass>com.Yasna.forum.tags.ErrorTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Includes body of tag if an error is set.</info>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>error_loop</name>
+    <tagclass>com.Yasna.forum.tags.ErrorLoopTag</tagclass>
+    <teiclass>com.Yasna.forum.tags.ErrorLoopTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Loops through all the error messages.</info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>log</name>
+    <tagclass>com.Yasna.forum.tags.LogTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>Logs the body of the tag to the servlet context log.</info>
+  </tag>
+
+</taglib>

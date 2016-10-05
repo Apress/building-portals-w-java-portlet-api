@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<portlet-app version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/portlet" xmlns="http://java.sun.com/xml/ns/portlet">
+
+    <portlet>
+      <description>Browse Organized Content</description>
+      <portlet-name>TaxonomyPortlet</portlet-name>
+      <display-name>Taxonomy Portlet</display-name>
+      <portlet-class>com.portalbook.xdoclet.SessionPortlet</portlet-class>
+
+      <init-param>
+        <name>indexPath</name>
+        <value>/java/index</value>
+      </init-param>
+      <init-param>
+        <name>repository</name>
+        <value>engineering</value>
+      </init-param>
+
+      <expiration-cache>0</expiration-cache>
+      <supports>
+        <mime-type>text/html</mime-type>
+        <portlet-mode>edit</portlet-mode>
+        <portlet-mode>help</portlet-mode>
+        <portlet-mode>view</portlet-mode>
+      </supports>
+
+      <portlet-info>
+        <title>Taxonomy Portlet</title>
+        <short-title>Taxonomy</short-title>
+        <keywords>Taxonomy,Lucene</keywords>
+      </portlet-info>
+
+      <portlet-preferences>
+        <preference>
+          <name>bookmark</name>
+          <value>/content/marketing</value>
+        </preference>
+
+        <preferences-validator>
+          com.portalbook.portlets.TaxonomyValidator
+        </preferences-validator>
+      </portlet-preferences>
+      <security-role-ref>
+        <role-name>Administrator</role-name>
+        <role-link>admin</role-link>
+      </security-role-ref>
+    </portlet>
+     <!--
+       To add custom portlet modes to the portlet.xml file, add a file to your
+       XDoclet merge directory called custom-portlet-modes.xml that contains the
+       <custom-portlet-mode></custom-portlet-mode> markup.
+     -->
+    <!--
+       To add custom window states to the portlet.xml file, add a file to your
+       XDoclet merge directory called portlet-custom-window-states.xml that contains the
+       <custom-window-state></custom-window-state> markup.
+    -->
+
+    <!--
+       To add user attributes to the portlet.xml file, add a file to your
+       XDoclet merge directory called portlet-user-attributes.xml that contains the
+       <user-attribute></user-attribute> markup.
+    -->
+    <!--
+       To add security constraints to the portlet.xml file, add a file to your
+       XDoclet merge directory called portlet-security.xml that contains the
+       <security-constraint></security-constraint> markup.
+    -->
+
+</portlet-app>

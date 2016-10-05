@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+
+    <user-attribute>
+       <description>User Given Name</description>
+       <name>user.name.given</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Title</description>
+       <name>user.name.prefix</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Given Name</description>
+       <name>user.name.given</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Family Name</description>
+       <name>user.name.family</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Middle Name</description>
+       <name>user.name.middle</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Employer Name</description>
+       <name>user.employer</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Department Name</description>
+       <name>user.department</name>
+    </user-attribute>
+
+    <user-attribute>
+       <description>User Job Title</description>
+       <name>user.jobtitle</name>
+    </user-attribute>
+
+        
+	<portlet>
+        <description>Portlet Attribute Lister</description>		
+        <portlet-name>lister</portlet-name>		
+        <display-name>Attribute Lister</display-name>
+		
+        <portlet-class>com.portalbook.custom.UAPortlet</portlet-class>
+
+        <expiration-cache>-1</expiration-cache>		        
+        <supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+		</supports>
+        <supported-locale>en</supported-locale>
+
+		<portlet-info>
+			<title>User Attribute Lister</title>
+			<short-title>UALister</short-title>
+			<keywords>Lister</keywords>
+        </portlet-info>
+        
+	</portlet>
+ </portlet-app>

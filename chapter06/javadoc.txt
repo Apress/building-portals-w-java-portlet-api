@@ -1,0 +1,36 @@
+ /**
+  * @portlet.portlet
+  *   name="RedirectPortlet"
+  *   description="Browse Organized Content"
+  *   display-name="Taxonomy Portlet"
+  *   expiration-cache="0"
+  *
+  * @portlet.portlet-info
+  *   title="Taxonomy Portlet"
+  *   keywords="Taxonomy,Lucene"
+  *   short-title="Taxonomy"
+  *
+  * @portlet.portlet-init-param
+  *   name="indexPath"
+  *   value="/java/index"
+  *
+  * @portlet.portlet-init-param
+  *   name="repository"
+  *   value="engineering"
+  *
+  * @portlet.preference
+  *   name="bookmark"
+  *   value="/content/marketing"
+  *
+  * @portlet.preferences-validator
+  *   class="com.portalbook.portlets.TaxonomyValidator"
+  *
+  * @portlet.security-role-ref
+  *   role-link="admin"
+  *   role-name="Administrator"
+  *
+  * @portlet.supports
+  *   mime-type="text/html"
+  *   modes="edit,help,view"
+  *
+ */

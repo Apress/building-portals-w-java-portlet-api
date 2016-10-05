@@ -1,0 +1,41 @@
+<project name="Chapter08" default="main" basedir=".">
+
+   <property environment="env"/>
+   
+   <property file="./build.properties"/>
+
+   <property name="tomcat.home"		value="${env.CATALINA_HOME}"/>
+   <property name="build.compiler"	value="modern"/>
+   <property name="build.dir"		value="./WEB-INF/classes" />
+   <property name="src.dir"		value="."/>
+   <property name="war.file"		value="Chapter08"/>
+   
+   <path id="project.class.path">
+      <fileset dir="./WEB-INF/lib/">
+         <include name="**/*.jar"/>
+      </fileset>
+      <pathelement path="${src.dir}"/>
+   </path>
+   
+   <target name="clean">
+      <delete dir="${build.dir}" includeEmptyDirs="true" />
+   </target>
+   
+   <target name="prep">
+         <mkdir dir="${build.dir}"/>
+   </target>
+   
+   <target name="compile">
+      <javac	srcdir="${src.dir}"
+                destdir="${build.dir}"
+                debug="on"
+                deprecation="on">
+         <include name="**/*.java"/>
+         <classpath refid="project.class.path"/>
+      </javac>
+   </target>
+
+   <target name="main" depends="clean, prep, compile"/>
+	
+</project>
+  
